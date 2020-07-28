@@ -3,6 +3,7 @@ import classes from "./Blog.module.css";
 import { Route } from "react-router";
 import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
+import { Link } from "react-router-dom";
 
 class Blog extends Component {
   render() {
@@ -12,10 +13,22 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <a href="/">Home</a>
+                <Link
+                  to={{
+                    pathname: "/",
+                  }}
+                >
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="/new-post">New Post</a>
+                <Link
+                  to={{
+                    pathname: "/new-post",
+                  }}
+                >
+                  New Post
+                </Link>
               </li>
             </ul>
           </nav>
