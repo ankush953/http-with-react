@@ -18,7 +18,10 @@ class NewPost extends Component {
       body: this.state.content,
       author: this.state.author,
     };
-    Axios.post("posts", data).then(() => this.setState({ submitted: true }));
+    Axios.post("posts", data).then(() => {
+      this.props.history.push("/posts");
+      // this.setState({ submitted: true });
+    });
   };
 
   componentDidMount() {}
@@ -26,7 +29,7 @@ class NewPost extends Component {
   render() {
     return (
       <div className="NewPost">
-        {this.state.submitted ? <Redirect to="/posts" /> : null}
+        {/* {this.state.submitted ? <Redirect to="/posts" />: null} */}
         <h1>Add a Post</h1>
         <label>Title</label>
         <input
