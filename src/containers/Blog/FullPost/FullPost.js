@@ -10,6 +10,7 @@ class FullPost extends Component {
 
   componentDidMount() {
     if (this.props.match.params.id) {
+      console.log(this.state.loadedPost);
       if (
         !this.state.loadedPost ||
         this.state.loadedPost.id !== this.props.match.params.id
@@ -23,12 +24,12 @@ class FullPost extends Component {
 
   deletePostHandler = () => {
     Axios.delete("posts/" + this.props.match.params.id).then((response) =>
-      console.log(response)
+      response
     );
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     let post = <p>Please select a Post!</p>;
     if (this.props.match.params.id) {
       if (this.state.loadedPost) {
